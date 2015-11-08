@@ -7,6 +7,9 @@
 	}else {
 		$page = "inloggen";
 	}
+	if(isset($_SESSION['ADMIN'])){
+		echo "<h1>ADMIN?</h1>";
+	}
 	if($page) {
 		echo("<div id='".$page."-page page'>");
 		include("pages/".$page.".php");

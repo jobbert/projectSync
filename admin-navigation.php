@@ -18,7 +18,7 @@
 </form>
 
 <?php 
-$_SESSION['Q_OV'] = $_POST['query'];
-echo "<script>alert(".$_SESSION['Q_OV'].");</script>";
+// $_SESSION['Q_OV'] = $_POST['query'];
+// echo "<script>alert(".$_SESSION['Q_OV'].");</script>";
 ?>
 

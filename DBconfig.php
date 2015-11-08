@@ -2,9 +2,8 @@
 	DEFINE("DB_USER", "root");
 	DEFINE("DB_PASS", "password");
 	try {
-		$db = new PDO(
-			"mysql:host=localhost;dbname=projectsync",
-			DB_USER,DB_PASS);
+		$dsn = "mysql:host=localhost;dbname=projectsync";
+		$db = new PDO($dsn, DB_USER, DB_PASS);
 		$db->setAttribute(
 			PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 	} 
