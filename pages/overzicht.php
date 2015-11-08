@@ -29,7 +29,8 @@ if(!isset($_SESSION['ADMIN'])) {
 			foreach ($projResult as $projRow) {
 				echo(" | |" . $projRow['P_ID'] . "|" . $projRow['naam']);echo "</br>";
 				// echo(var_dump($projRow));echo "</br>";
-				$rowP_ID = json_encode($projRow['P_ID']);
+				$rowP_ID = json_decode($projRow['P_ID']);
+				echo($rowP_ID);echo "</br>";
 				echo(json_encode($projRow['P_ID']));echo "</br>";
 				$kostenQuery = 
 				"SELECT declaraties.Kostencode, kosten.omschrijving, declaraties.Datum, declaraties.Bedrag, declaraties.P_ID 
@@ -37,17 +38,25 @@ if(!isset($_SESSION['ADMIN'])) {
 					INNER JOIN declaraties
 					ON declaraties.Kostencode = kosten.kostencode
 					WHERE P_ID = :rowP_ID;";
-				$stmt = $db->prepare($projectenQuery);
+				$stmt = $db->prepare($kostenQuery);
 				$stmt->bindParam(':rowP_ID', $rowP_ID, PDO::PARAM_INT);
     $stmt -> execute(); 
 				// $stmt->execute(array(':rowP_ID', $rowP_ID));
 				$kostResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				foreach ($kostResult as $kostRow) {
+					$subtotaal .= json_decode($kostRow['Bedrag']);
+					echo("sub: " . $subtotaal);echo "</br>";
 					echo(var_dump($kostRow));echo "</br>";
 					// echo(" | |" . $kostRow['Kostencode'] . "|" . $kostRow['omschrijving'] . "|" . $kostRow['Datum'] . "|" . $kostRow['Bedrag']);echo "</br>";
 				}
+				echo($subtotaal);echo "</br>";
+				echo "---</br>";
+				$totaal .= $subtotaal;
 			}
+			echo($totaal);echo "</br>";
+			echo "------</br>";
 		}
+		echo "end</br>";
 	} catch(PDOException $e) {
 		echo $e->getMessage();
 	}
