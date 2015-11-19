@@ -12,13 +12,3 @@
 		<li onclick="confirm_logout()">Loguit</li>
 	</ul>
 </div>
-
-<form name="options" action="<?php echo $_SERVER['$PHP_SELF']; ?>" method="POST">
- <input type="hidden" value="query" name="query"/>
-</form>
-
-<?php 
-// $_SESSION['Q_OV'] = $_POST['query'];
-// echo "<script>alert(".$_SESSION['Q_OV'].");</script>";
-?>
-

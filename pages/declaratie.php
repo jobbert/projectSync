@@ -28,7 +28,7 @@ foreach($result as $row) {
   align-items: stretch;"
 >
  <input type="hidden" value="<?php  echo $_SESSION['ID']; ?>" name="C_ID"/>
-	<select name="project">
+	<select name="project"autofocus>
 		<?php echo($proj_ops); ?>
 	</select></br>
 	<select name="kosten">

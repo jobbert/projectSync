@@ -4,14 +4,14 @@
 			<p>login</p>
 		</div>
 		<form name="loginForm" method="POST" enctype="multipart/form-data" >
-			<input placeholder="email" class="email" type="email" name="email">
+			<input placeholder="email" class="email" type="email" name="email" autofocus>
 			<input placeholder="password" class="password" type="password" name="password">
 			<input name="submit" value="true" type="hidden">
 			<input id="submit" value="Aanmelden" type="submit">
 		</form>
 		<div class="extra">
 			<span onclick="location.href='index.php?page=register'">Nog geen account?</span>
-			<span>Wachtwoord vergeten?</span>
+			<span onclick="location.href='index.php?page=forgot'">Wachtwoord vergeten?</span>
 		</div>
 	</div>
 </div>

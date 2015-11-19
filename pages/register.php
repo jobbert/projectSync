@@ -5,7 +5,7 @@
 		</div>
 		<form name="registerForm" method="POST" enctype="multipart/form-data" >
 			<!-- <input placeholder="Uw consultant code" class="C_ID" type="text" name="C_ID"> -->
-			<input placeholder="naam" class="naam" type="text" name="naam">
+			<input placeholder="naam" class="naam" type="text" name="naam" autofocus>
 			<input placeholder="adres" class="adres" type="text" name="adres">
 			<input placeholder="email" class="email" type="email" name="email">
 			<input placeholder="password" class="password" type="password" name="password">
@@ -45,11 +45,11 @@
 				$stmt = $db->prepare($sql);
 				$stmt->execute(array(':naam'=> $naam, ':adres' => $adres, ':email' => $email));
 
-				// get total matches //
+				// // get total matches //
 				// $total = $stmt->rowCount();
 				// echo "{$total}</br>";
 
-				// get all matches //
+				// // get all matches //
 				// while ($row = $stmt->fetchObject()) {
 	   //  echo "<ul>";
 
