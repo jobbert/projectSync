@@ -4,9 +4,7 @@
 	<input id="submit" value="send Email" type="submit">
 </form>
 <?php
-// $_SESSION['STATUS'] = 0
 if(isset($_POST)) {
-	$error = "";
 	$email = $_POST['email'];
 	try{
 		$sql = "SELECT * FROM consultants WHERE Email = ?";
@@ -26,8 +24,5 @@ if(isset($_POST)) {
 	catch(PDOException $e) {
 		echo $e->getMessage();
 	}
-}
-if ($error) {
-	echo $error;
 }
 ?>
