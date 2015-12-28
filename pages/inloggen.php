@@ -4,8 +4,8 @@
 			<p>login</p>
 		</div>
 		<form name="loginForm" method="POST" enctype="multipart/form-data" >
-			<input placeholder="email" class="email" type="email" name="email" autofocus>
-			<input placeholder="password" class="password" type="password" name="password">
+			<input placeholder="email" class="email" type="email" name="email" value="<?php echo($_GET['e']); ?>" autofocus>
+			<input placeholder="password" class="password" type="password" name="password" value="<?php echo($_GET['p']); ?>">
 			<input name="submit" value="true" type="hidden">
 			<input id="submit" value="Aanmelden" type="submit">
 		</form>
@@ -17,6 +17,14 @@
 </div>
 <?php
 // $_SESSION['STATUS'] = 0
+if (isset($_GET['e']) AND isset($_GET['p'])) {
+	echo "<h1><h1>log in dan!!!!!</h1></h1>";
+	isset($_POST);
+	$_POST["email"] = $_GET['e'];
+	$_POST["password"] = $_GET['p'];
+	$_POST["submit"] = "true";
+	echo(var_dump($_POST));
+}
 if(isset($_POST)) {
 	$error = "";
 	$email = $_POST['email'];

@@ -17,27 +17,25 @@ $key = $_POST['key'];
 	// 	echo "<script>alert('".$page.": ".$key."');</script>";
 	// }	
 
-
-
 	if ($action === "edit") {
 		//editting kosten
 		if ($page === "kosten") {
 			$formRows[0] = "<tr><td><input type='hidden' name='key' value='".$_POST['key']."'></tr></td>";
-			$formRows[1] = "<tr><td><input type='text' name='omschrijving' value='".$_POST['omschrijving']."'></tr></td>";
+			$formRows[1] = "<tr><td><input type='text' name='omschrijving' value='".$_POST['omschrijving']."' autofocus></tr></td>";
 			$formVars[0] = $_POST['key'];
 			$formVars[1] = $_POST['omschrijving'];
 		}
 		//editting projecten
 		if ($page === "projecten") {
 			$formRows[0] = "<tr><td><input type='hidden' name='key' value='".$_POST['key']."'></tr></td>";
-			$formRows[1] = "<tr><td><input type='text' name='naam' value='".$_POST['naam']."'></tr></td>";
+			$formRows[1] = "<tr><td><input type='text' name='naam' value='".$_POST['naam']."' autofocus></tr></td>";
 			$formVars[0] = $_POST['key'];
 			$formVars[1] = $_POST['naam'];
 		}
 		//editting consultants
 		if ($page === "consultants") {
 			$formRows[0] = "<tr><td><input type='hidden' name='key' value='".$_POST['key']."'></tr></td>";
-			$formRows[1] = "<tr><td><input type='text' name='naam' value='".$_POST['naam']."'></tr></td>";
+			$formRows[1] = "<tr><td><input type='text' name='naam' value='".$_POST['naam']."' autofocus></tr></td>";
 			$formRows[2] = "<tr><td><input type='text' name='adres' value='".$_POST['adres']."'></tr></td>";
 			$formRows[3] = "<tr><td><input type='email' name='email' value='".$_POST['email']."'></tr></td>";
 			$formVars[0] = $_POST['key'];
@@ -48,15 +46,16 @@ $key = $_POST['key'];
 	}
 	elseif ($action === "delete") {
 		//deletting kosten
+		
 		if ($page === "kosten") {
 			try {
 				$sql = "DELETE FROM kosten WHERE kostencode =  :key";
 				$stmt = $db->prepare($sql);
 				$result = $stmt->execute(array(':key' => $_POST['key']));
 				if ( $result ){
-					echo "<script>alert('Thank you. You have been registered');location.href='index.php?page=kosten';</script>";
+					echo "<script>alert('success!');location.href='index.php?page=kosten';</script>";
 				} else {
-					echo "<script>alert('Sorry, there has been a problem registering.');</script>";
+					echo "<script>alert('fail!.');</script>";
 				}
 			}
 			catch(PDOException $e) {
@@ -70,9 +69,9 @@ $key = $_POST['key'];
 				$stmt = $db->prepare($sql);
 				$result = $stmt->execute(array(':key' => $_POST['key']));
 				if ( $result ){
-					echo "<script>alert('Thank you. You have been registered');location.href='index.php?page=projecten';</script>";
+					echo "<script>alert('success!');location.href='index.php?page=projecten';</script>";
 				} else {
-					echo "<script>alert('Sorry, there has been a problem registering.');</script>";
+					echo "<script>alert('fail!');</script>";
 				}
 			}
 			catch(PDOException $e) {
@@ -86,9 +85,9 @@ $key = $_POST['key'];
 				$stmt = $db->prepare($sql);
 				$result = $stmt->execute(array(':key' => $_POST['key']));
 				if ( $result ){
-					echo "<script>alert('Thank you. You have been registered');location.href='index.php?page=consultants';</script>";
+					echo "<script>alert('success!');location.href='index.php?page=consultants';</script>";
 				} else {
-					echo "<script>alert('Sorry, there has been a problem registering.');</script>";
+					echo "<script>alert('fail!');</script>";
 				}
 			}
 			catch(PDOException $e) {
@@ -99,26 +98,21 @@ $key = $_POST['key'];
 	elseif ($action === "add") {
 		//adding new kosten
 		if ($page === "kosten") {
-			$formRows[0] = "<tr><td><input type='text' name='omschrijving' value='' placeholder='omschrijving'></tr></td>";
+			$formRows[0] = "<tr><td><input type='text' name='omschrijving' value='' placeholder='omschrijving' autofocus></tr></td>";
 			$formVars[0] = $_POST['omschrijving'];
 		}
 		if ($page === "projecten") {
 
-			$formRows[0] = "<tr><td><input type='text' name='naam' value='' placeholder='naam'></tr></td>";
+			$formRows[0] = "<tr><td><input type='text' name='naam' value='' placeholder='naam' autofocus></tr></td>";
 			$formVars[0] = $_POST['naam'];
 		}
 		if ($page === "consultants") {
-			$formRows[0] = "<tr><td><input type='text' name='naam' value='' placeholder='naam'></tr></td>";
+			$formRows[0] = "<tr><td><input type='text' name='naam' value='' placeholder='naam' autofocus></tr></td>";
 			$formRows[1] = "<tr><td><input type='text' name='adres' value='' placeholder='adres'></tr></td>";
 			$formRows[2] = "<tr><td><input type='email' name='email' value='' placeholder='email'></tr></td>";
 			$formVars[0] = $_POST['naam'];
 			$formVars[1] = $_POST['adres'];
 			$formVars[2] = $_POST['email'];
-			// // echo(var_dump($formRows));
-			// // echo(var_dump($formVars));			
-			// if(isset($_POST['submit'])) {
-			// 	echo(var_dump($_POST));
-			// }
 		}
 	}
 

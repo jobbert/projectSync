@@ -1,3 +1,6 @@
+<?php
+if (isset($_SESSION['ID'])) {
+?>
 <h3>De business rules van  ‘Project-Sync’</h3>
 <p>
 SoftROC hanteert de volgende business rules voor het declareren van projectkosten:
@@ -22,3 +25,11 @@ Laptops:
 </br>
 Laptops t/m 1000 euro’s worden vergoed.
 </p>
+<?php 
+}
+else {
+?>
+<h1 style="align-self">U heeft geen toegang tot deze pagina!</h1>
+<?php
+}
+?>

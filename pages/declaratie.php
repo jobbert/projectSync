@@ -1,4 +1,7 @@
 <?php
+if (isset($_SESSION['ID'])) {
+?>
+<?php
 $proj_ops = '';
 $kost_ops = '';
 
@@ -61,4 +64,12 @@ if(isset($_POST)) {
 	}
 }
 
+?>
+<?php 
+}
+else {
+?>
+<h1 style="align-self">U heeft geen toegang tot deze pagina!</h1>
+<?php
+}
 ?>

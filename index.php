@@ -7,13 +7,22 @@
 	}else {
 		$page = "inloggen";
 	}
-	if(isset($_SESSION['ADMIN'])){
-		echo "<h1>ADMIN?</h1>";
-	}
 	if($page) {
-		echo("<div id='".$page."-page page'>");
-		include("pages/".$page.".php");
-		echo("</div>");
+		// if ($page === 'inloggen') {
+			echo("<div class='spacert'></div>");
+			echo("<div id='".$page."-page' class='page'>");
+			echo("<div class='spacert'></div>");
+			include("pages/".$page.".php");
+			echo("</div>");
+		// }
+		// else {
+			// echo("<div id='".$page."-page page'>");
+			// include("pages/".$page.".php");
+			// echo("</div>");
+		// }
 	}
+	?>
+	<!-- <div class="spacert" style="/* display: flex; flex-grow: 1; flex-shrink: 0; flex-basis: auto; min-height: 0; */"></div> -->
+	<?php
 	include("footer.php");
 ?>

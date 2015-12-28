@@ -1,5 +1,13 @@
 		<div id="footer">
-			<p>Copyright &copy; 2016 <i>Job Peters</i> </p>
+			<?php 
+			function auto_copyright($year = 'auto') {
+	   if(intval($year) == 'auto'){ $year = date('Y'); }
+	   if(intval($year) == date('Y')){ echo intval($year); }
+	  	if(intval($year) < date('Y')){ echo intval($year) . ' - ' . date('Y'); }
+    if(intval($year) > date('Y')){ echo date('Y'); }
+   } 
+   ?>
+			<p>Copyright &copy; <?php auto_copyright('2012');?> <i>Job Peters</i> </p>
 		</div>
 	</body>
 </html>

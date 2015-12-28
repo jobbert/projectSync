@@ -1,28 +1,85 @@
+html{
+	background: aliceblue;
+	font-family: Verdana;
+}
 body{
 	height: 100%;
-	width: calc(100% - 8px);
+	width: 100%;
+}
+#banner{
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	-webkit-flex-grow:1;
 }
-#banner{
-	height:32px;
-	width:100%;
-}
-#navigatie {
-	height:32px;
+#banner div#user {
+	height:2rem;
 	width:100%;
 	display: flex;
-}
-#navigatie ul{
 	flex-direction: row;
-	justify-content: space-around;
-	padding: 0px;
+ justify-content: center;
+ align-items: center;
 }
-#page{
+#banner div.navigatie ul {
+	//because fuck you Chrome
+	-webkit-margin-before: 0px;
+ -webkit-margin-after: 0px;
+ -webkit-margin-start: 0px;
+ -webkit-margin-end: 0px;
+ -webkit-padding-start: 0px;
+}
+#banner div.navigatie .ul{
+	flex-shrink: 0;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	list-style: none;
+}
+#banner div.navigatie .ul li{
+ padding: .5rem;
+ margin: 0 0.5rem;
+ background: whitesmoke;
+ border-radius: .05rem;
+ box-shadow: 1px 1px 1px black;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+ align-items: center;
+}
+#banner div.navigatie .ul li:active{
+ box-shadow: inset 1px 1px 1px black;
+}
+
+#banner div#admin-navigatie ul #Overzicht-options{
+	display: flex;
+	flex-direction: column;
+}
+// #banner #navigatie ul {
+// 	border: none;
+// 	// flex-direction: row;
+// 	// justify-content: space-around;
+// 	// padding: 0px;
+// }
+// #banner #navigatie ul li {
+// 	border: none;
+// }
+// #banner #navigatie ul li ul li {
+// 	border: none;
+// }
+.page{
 	width:100%;
+	display: flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items:center;
 }
 #footer{
-	height:32px;
 	width:100%;
+	display: flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
 }

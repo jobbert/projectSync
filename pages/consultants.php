@@ -1,3 +1,6 @@
+<?PHP 
+if(isset($_SESSION['ADMIN'])){
+?>
 <style type="text/css">
 	th{
 		padding: 8px;
@@ -54,9 +57,10 @@
 	</tfoot>
 </table>
 <?php 
-	// if (isset($_POST['edit'])) {
-	// 	echo "<script>alert('editing: ".$_POST['C_ID']."');</script>";
-	// }elseif (isset($_POST['delete'])) {
-	// 	echo "<script>alert('deleting: ".$_POST['C_ID']."');</script>";
-	// }
+}
+else {
+?>
+<h1 style="align-self">U heeft geen toegang tot deze pagina!</h1>
+<?php
+}
 ?>

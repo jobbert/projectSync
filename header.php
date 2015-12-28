@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 	<head>
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 		<title>ProjectSync</title>
 		<link rel='stylesheet' type='text/css' href='css/index.styl'/>
 		<?php 
@@ -13,9 +14,9 @@
 		?>
 	</head>
 <body>
-<?php
+	<?php
 	if(isset($_SESSION['ID']) && $_SESSION['STATUS'] === 1) {
-?>
+	?>
 		<script>
 			function confirm_logout() {
 				var logout = confirm('Weet u zeker dat u uit wilt loggen?');
@@ -25,22 +26,23 @@
 			}
 		</script>		
 		<div id='banner'>
-<!-- 			<div id='logo'>
-				<img src='img/logo.png' alt='logo'/>
-			</div> -->
 			<div id="user">
-<?php
+				<?php
 				if(isset($_SESSION['NAAM']) && ($_SESSION['NAAM'] != "")) {
-				 echo	'<span>U bent ingelogd als: ' . $_SESSION['NAAM'] . '</span>';
+					$naam = $_SESSION['NAAM'];
+				 echo	'<span>U bent ingelogd als: ' . $naam . '</span>';
 				};
-?>
+				?>
 			</div>	
+			<?php 
+			if(!($_SESSION['ADMIN'] === 1)) {
+				include("consultant-navigation.php");
+			} 
+			else {
+				include("admin-navigation.php");
+			}
+			?>
 		</div>
-<?php  
-		if(!($_SESSION['ADMIN'] === 1)) {
-			include("consultant-navigation.php");
-		} else {
-			include("admin-navigation.php");
-		}
+<?php
 	}
 ?>
